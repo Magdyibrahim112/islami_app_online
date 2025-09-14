@@ -5,9 +5,14 @@ abstract class ImageAssets{
   static const String islamiLogo = "$base/islami_logo.png";
   static const String mostRecentCardImage = "$base/most_recent_card_image.png";
   static const String quranTabBg = "$base/quran_tab_background.png";
-  static const String  suraNumberBg= "$base/sura_number_bg.png";
-  static const String  suraDetalsPatternLeft= "$base/sura_details_pattern_left.png";
-  static const String  suraDetalsPatternRight= "$base/sura_details_pattern_right.png";
+  static const String suraNumberBg= "$base/sura_number_bg.png";
+  static const String suraDetalsPatternLeft= "$base/sura_details_pattern_left.png";
+  static const String suraDetalsPatternRight= "$base/sura_details_pattern_right.png";
+  static const String hadithTabBg = "$base/hadith_tab_bg.png";
+  static const String hadithCardBgImage = "$base/hadith_card_bg_image.png";
+  static const String hadithCardBottomImage = "$base/hadith_card_bottom_image.png";
+
+
 
 
 }
