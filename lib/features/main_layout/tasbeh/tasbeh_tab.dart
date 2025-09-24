@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/core/resources/colors_manager.dart';
 
 class TasbehTab extends StatelessWidget {
   const TasbehTab({super.key});
@@ -6,7 +7,7 @@ class TasbehTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.amber,
+      color: ColorsManager.black,
     );
   }
 }

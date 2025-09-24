@@ -26,8 +26,8 @@ class ThemeManager {
   static final ThemeData dark = ThemeData(
     primaryColor: Colors.blueAccent,
     appBarTheme: AppBarTheme(
-      backgroundColor: Colors.red,
-      foregroundColor: Colors.white,
+      backgroundColor: ColorsManager.black,
+      foregroundColor: ColorsManager.gold,
       centerTitle: true,
       titleTextStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/core/resources/colors_manager.dart';
 
 class TimeTab extends StatelessWidget {
   const TimeTab({super.key});
@@ -6,7 +7,7 @@ class TimeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.cyanAccent,
+      color: ColorsManager.black,
     );
   }
 }

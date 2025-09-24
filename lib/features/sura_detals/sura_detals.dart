@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/core/resources/assets_manager.dart';
 import 'package:islami_app/core/resources/colors_manager.dart';
+import 'package:islami_app/features/main_layout/quran/sura_item.dart';
 import 'package:islami_app/features/sura_detals/verse_item.dart';
 import 'package:islami_app/models/sura_model.dart';
 
@@ -15,21 +16,35 @@ class SuraDetals extends StatefulWidget {
 }
 
 class _SuraDetalsState extends State<SuraDetals> {
-  late SuraModel suraArguments;
+  late SuraDetailsArguments suraArguments;
   List<String> verses = [];
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    suraArguments = ModalRoute.of(context)?.settings.arguments as SuraModel;
-    loadSuraContent(suraArguments.suraIndex);
+    suraArguments = ModalRoute.of(context)?.settings.arguments as SuraDetailsArguments;
+    loadSuraContent(suraArguments.sura.suraIndex);
+  }
+
+  @override
+  void dispose(){
+    // TODO implement dispose
+    super.dispose();
+    ///access fetchMostResent (exist in _MostResentState)=>_MostResentState
+    suraArguments.mostResentKey.currentState?.fetchMostResent();
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(title: Text(suraArguments.suraNameEn)),
+      appBar: AppBar(
+        title: Text(suraArguments.sura.suraNameEn),
+        titleTextStyle: TextStyle(
+          color: ColorsManager.gold,
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       body: Column(
         children: [
           Stack(
@@ -43,7 +58,7 @@ class _SuraDetalsState extends State<SuraDetals> {
                 ],
               ),
               Text(
-                suraArguments.suraNameAr,
+                suraArguments.sura.suraNameAr,
                 style: TextStyle(
                   color: ColorsManager.gold,
                   fontWeight: FontWeight.bold,
@@ -53,9 +68,15 @@ class _SuraDetalsState extends State<SuraDetals> {
             ],
           ),
           Expanded(
-            child:verses.isEmpty ? Center(child: CircularProgressIndicator(color: ColorsManager.gold,),)
+            child: verses.isEmpty
+                ? Center(
+                    child: CircularProgressIndicator(color: ColorsManager.gold),
+                  )
                 : ListView.builder(
-              itemBuilder: (context, index) => VerseItem(verse: verses[index]),itemCount: verses.length,)
+                    itemBuilder: (context, index) =>
+                        VerseItem(verse: verses[index]),
+                    itemCount: verses.length,
+                  ),
           ),
         ],
       ),
@@ -65,9 +86,11 @@ class _SuraDetalsState extends State<SuraDetals> {
   void loadSuraContent(String suraIndex) async {
     String filePath = "assets/files/suras/$suraIndex.txt";
     String fileContent = await rootBundle.loadString(filePath);
-    List<String> surasLines = fileContent.trim().split("\n");///trim can remove white spases
-    for(int i = 0 ; i < surasLines.length ; i++){
-      surasLines[i]+= "[${i+1}]";
+    List<String> surasLines = fileContent.trim().split("\n");
+
+    ///trim can remove white spases
+    for (int i = 0; i < surasLines.length; i++) {
+      surasLines[i] += "[${i + 1}]";
     }
     await Future.delayed(Duration(seconds: 1));
     setState(() {
@@ -80,6 +103,7 @@ class _SuraDetalsState extends State<SuraDetals> {
     //setState(() {});
   }
 }
+
 /*
 Text(
               "Sura Content",

@@ -11,10 +11,6 @@ abstract class ImageAssets{
   static const String hadithTabBg = "$base/hadith_tab_bg.png";
   static const String hadithCardBgImage = "$base/hadith_card_bg_image.png";
   static const String hadithCardBottomImage = "$base/hadith_card_bottom_image.png";
-
-
-
-
 }
 abstract class IconAssets{
   static const base = "assets/images";
