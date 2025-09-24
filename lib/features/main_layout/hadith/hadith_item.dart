@@ -83,7 +83,6 @@ class _HadithItemState extends State<HadithItem> {
                     ),
                 ),
           ),
-          //Spacer(),
           Image.asset(ImageAssets.hadithCardBottomImage),
         ],
       ),
@@ -103,25 +102,4 @@ class _HadithItemState extends State<HadithItem> {
 
     });
   }
-
-/*
- void loadHadithContent(int index){
-   String filePath = "assets/files/hadeth/$index.txt";
-   rootBundle.loadString(filePath).then((fileContent){
-    List<String> hadithLines = fileContent.trim().split("\n");
-    String title = hadithLines[0];
-    hadithLines.removeAt(0);
-    String content = hadithLines.join();
-    Future.delayed(Duration(seconds: 1)).then((_){
-      hadith = HadithModel(title: title, content: content);
-      setState(() {
-
-      });
-    });
-
-   });
-
- }
-
- */
 }
