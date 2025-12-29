@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/resources/colors_manager.dart';
 
@@ -6,6 +7,7 @@ class ThemeManager {
   static final ThemeData light = ThemeData(
     primaryColor: Colors.blueAccent,
     appBarTheme: AppBarTheme(
+      iconTheme: IconThemeData(color: ColorsManager.gold),
       backgroundColor: ColorsManager.black,
       foregroundColor: ColorsManager.gold,
       centerTitle: true,
@@ -21,6 +23,17 @@ class ThemeManager {
       type: BottomNavigationBarType.fixed,
       selectedItemColor: ColorsManager.white,
       unselectedItemColor: ColorsManager.black,
+    ),
+    textTheme: TextTheme(
+      titleMedium: GoogleFonts.afacad(
+          fontSize: 20,
+          color: Colors.black
+      ),
+      headlineMedium: GoogleFonts.afacad(
+        fontSize: 24,
+        color: ColorsManager.gold,
+        fontWeight: FontWeight.bold,
+      ),
     ),
   );
   static final ThemeData dark = ThemeData(

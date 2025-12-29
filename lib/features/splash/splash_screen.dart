@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/core/resources/assets_manager.dart';
 import 'package:islami_app/core/resources/colors_manager.dart';
+import 'package:islami_app/core/resources/prefs_manger/prefs-manager.dart';
 import 'package:islami_app/core/routes_manager/routes_manager.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,7 +20,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void navigate() {
     Future.delayed(Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, RoutesManager.mainLayout);
+      if (PrefsManager.getOnboardingSeen()) {
+        Navigator.pushReplacementNamed(context, RoutesManager.mainLayout);
+      } else {
+        Navigator.pushNamed(context, RoutesManager.onBoarding);
+      }
     });
   }
 

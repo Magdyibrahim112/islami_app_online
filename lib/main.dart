@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/config/theme/theme_manager.dart';
-import 'package:islami_app/core/extensions/context_extensions.dart';
-import 'package:islami_app/core/resources/colors_manager.dart';
+import 'package:islami_app/core/resources/prefs_manger/prefs-manager.dart';
 import 'package:islami_app/core/routes_manager/routes_manager.dart';
 
-void main() {
-  runApp(IslamiApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // بيتاكد ان الحاجة دى اتعملها initialize قبل ما يعمل run لل app
+  await PrefsManager.init();// هى دى الحاجة
+  runApp(const IslamiApp());
 }
 
 class IslamiApp extends StatelessWidget {
@@ -23,8 +25,3 @@ class IslamiApp extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
