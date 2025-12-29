@@ -11,6 +11,15 @@ abstract class ImageAssets{
   static const String hadithTabBg = "$base/hadith_tab_bg.png";
   static const String hadithCardBgImage = "$base/hadith_card_bg_image.png";
   static const String hadithCardBottomImage = "$base/hadith_card_bottom_image.png";
+  static const String onBoarding1 = "$base/onboarding1.png";
+  static const String onBoarding2 = "$base/onboarding2.png";
+  static const String onBoarding3 = "$base/onboarding3.png";
+  static const String onBoarding4 = "$base/onboarding4.png";
+  static const String onBoarding5 = "$base/onboarding5.png";
+  static const String sebhaBackground = "$base/sebha_background.png";
+  static const String sebhaBody = "$base/sebha_body.png";
+  static const String sebhaHead = "$base/sebha_head.png";
+
 }
 abstract class IconAssets{
   static const base = "assets/images";

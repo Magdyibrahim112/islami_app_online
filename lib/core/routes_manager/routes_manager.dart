@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:islami_app/features/main_layout/main_layout.dart';
+import 'package:islami_app/features/onboarding/screens/onboarding_screen.dart';
 import 'package:islami_app/features/splash/splash_screen.dart';
 import 'package:islami_app/features/sura_detals/sura_detals.dart';
 
@@ -12,5 +13,6 @@ class RoutesManager{
     splash : (context)=> SplashScreen(),
     mainLayout : (context)=> MainLayout(),
     suraDetails : (context)=> SuraDetals(),
+    onBoarding : (context)=> OnboardingScreen()
   };
 }
